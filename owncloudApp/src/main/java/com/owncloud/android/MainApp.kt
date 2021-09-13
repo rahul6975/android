@@ -30,6 +30,8 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.view.WindowManager
+
+import com.facebook.stetho.Stetho
 import com.owncloud.android.authentication.BiometricManager
 import com.owncloud.android.presentation.ui.security.PassCodeManager
 import com.owncloud.android.authentication.PatternManager
@@ -70,6 +72,8 @@ import timber.log.Timber
 class MainApp : Application() {
     override fun onCreate() {
         super.onCreate()
+
+        Stetho.initializeWithDefaults(this);
 
         appContext = applicationContext
 
