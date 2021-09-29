@@ -16,6 +16,7 @@ Summary
 * Enhancement - Delete old user directories in order to free memory: [#3336](https://github.com/owncloud/android/pull/3336)
 * Enhancement - Delete old logs every week: [#3328](https://github.com/owncloud/android/issues/3328)
 * Enhancement - Lock delay for app: [#3344](https://github.com/owncloud/android/issues/3344)
+* Enhancement - Allow access from document provider preference: [#3379](https://github.com/owncloud/android/issues/3379)
 * Enhancement - Instant upload only when charging: [#465](https://github.com/owncloud/android/issues/465)
 
 Details
@@ -88,6 +89,16 @@ Details
 
    https://github.com/owncloud/android/issues/3344
    https://github.com/owncloud/android/pull/3375
+
+* Enhancement - Allow access from document provider preference: [#3379](https://github.com/owncloud/android/issues/3379)
+
+   Previously, files of ownCloud accounts couldn't be accessed from document provider or
+   Android native file explorer when there was a lock set in the app. Now, a new preference has been
+   added to allow the access when the app is locked, disabled by default so that it's safer for those
+   who don't want this feature.
+
+   https://github.com/owncloud/android/issues/3379
+   https://github.com/owncloud/android/pull/3384
 
 * Enhancement - Instant upload only when charging: [#465](https://github.com/owncloud/android/issues/465)
 
