@@ -50,11 +50,7 @@ import com.owncloud.android.ui.activity.BiometricActivity
 import com.owncloud.android.presentation.ui.security.PassCodeActivity
 import com.owncloud.android.ui.activity.PatternLockActivity
 import com.owncloud.android.ui.activity.WhatsNewActivity
-import com.owncloud.android.utils.DOWNLOAD_NOTIFICATION_CHANNEL_ID
-import com.owncloud.android.utils.FILE_SYNC_CONFLICT_CHANNEL_ID
-import com.owncloud.android.utils.FILE_SYNC_NOTIFICATION_CHANNEL_ID
-import com.owncloud.android.utils.MEDIA_SERVICE_NOTIFICATION_CHANNEL_ID
-import com.owncloud.android.utils.UPLOAD_NOTIFICATION_CHANNEL_ID
+import com.owncloud.android.utils.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import org.koin.core.context.stopKoin
@@ -74,6 +70,8 @@ class MainApp : Application() {
         appContext = applicationContext
 
         startLogsIfEnabled()
+
+        DebugInjector.injectDebugTools(appContext)
 
         OwnCloudClient.setContext(appContext)
 
