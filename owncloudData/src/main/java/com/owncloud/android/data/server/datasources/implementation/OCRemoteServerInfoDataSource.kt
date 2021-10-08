@@ -74,10 +74,9 @@ class OCRemoteServerInfoDataSource(
     fun getRemoteStatus(path: String): RemoteServerInfo {
         val ownCloudClient = clientManager.getClientForUnExistingAccount(path, true)
 
-        val remoteStatusResult = serverInfoService.getRemoteStatus(path, ownCloudClient)
 
         val remoteServerInfo = executeRemoteOperation {
-            remoteStatusResult
+            serverInfoService.getRemoteStatus(path, ownCloudClient)
         }
 
         if (!remoteServerInfo.ownCloudVersion.isServerVersionSupported && !remoteServerInfo.ownCloudVersion.isVersionHidden) {
@@ -90,15 +89,16 @@ class OCRemoteServerInfoDataSource(
     override fun getServerInfo(path: String): ServerInfo {
         // First step: check the status of the server (including its version)
         val remoteServerInfo = getRemoteStatus(path)
-        val normalizedProtocolPrefix =
+        val baseUrl =
             normalizeProtocolPrefix(remoteServerInfo.baseUrl, remoteServerInfo.isSecureConnection)
 
         // Second step: get authentication method required by the server
-        val authenticationMethod = getAuthenticationMethod(normalizedProtocolPrefix)
+        val authenticationMethod = getAuthenticationMethod(baseUrl)
+
 
         return ServerInfo(
             ownCloudVersion = remoteServerInfo.ownCloudVersion.version,
-            baseUrl = normalizedProtocolPrefix,
+            baseUrl = baseUrl,
             authenticationMethod = authenticationMethod,
             isSecureConnection = remoteServerInfo.isSecureConnection
         )
