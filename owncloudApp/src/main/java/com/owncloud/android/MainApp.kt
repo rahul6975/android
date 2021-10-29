@@ -35,8 +35,6 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.view.WindowManager
-import android.widget.Toast
-import com.google.android.material.snackbar.Snackbar
 import com.owncloud.android.authentication.BiometricManager
 import com.owncloud.android.presentation.ui.security.PassCodeManager
 import com.owncloud.android.authentication.PatternManager
@@ -241,6 +239,10 @@ class MainApp : Application() {
         if (restrictions.containsKey("test_managed_configuration")) {
             val managedString = restrictions.getString("test_managed_configuration")
             managedString?.let { preferencesProvider.putString("TEST_MANAGED_CONFIGURATION", it) }
+        }
+        if (restrictions.containsKey("test_managed_configuration2")) {
+            val managedBool = restrictions.getBoolean("test_managed_configuration2")
+            preferencesProvider.putBoolean("TEST_MANAGED_CONFIGURATION2", managedBool)
         }
     }
 
