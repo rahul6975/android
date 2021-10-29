@@ -17,6 +17,7 @@ Summary
 * Enhancement - Delete old logs every week: [#3328](https://github.com/owncloud/android/issues/3328)
 * Enhancement - Instant upload only when charging: [#465](https://github.com/owncloud/android/issues/465)
 * Enhancement - New Logging Screen 2.0: [#3333](https://github.com/owncloud/android/issues/3333)
+* Enhancement - First steps in Android Enterprise integration: [#3415](https://github.com/owncloud/android/issues/3415)
 
 Details
 -------
@@ -96,6 +97,15 @@ Details
 
    https://github.com/owncloud/android/issues/3333
    https://github.com/owncloud/android/pull/3408
+
+* Enhancement - First steps in Android Enterprise integration: [#3415](https://github.com/owncloud/android/issues/3415)
+
+   Two parameters (server url and server url input visibility) can be now managed via MDM. These
+   were the first parameters used to test integration with Android Enterprise and Android
+   Management API.
+
+   https://github.com/owncloud/android/issues/3415
+   https://github.com/owncloud/android/pull/3419
 
 Changelog for ownCloud Android Client [2.18.3] (2021-10-27)
 =======================================
